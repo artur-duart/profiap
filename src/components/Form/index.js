@@ -1,7 +1,18 @@
+import DropdownList from '../DropdownList';
 import TextField from '../TextField';
 import './Form.css';
 
 function Form() {
+	const courses = [
+		'Análise e Desenvolvimento de Sistemas',
+		'Sistemas para Internet',
+		'Data Science',
+		'Defesa Cibernética',
+		'Produção Multimídia',
+		'Jogos Digitais',
+		'Gestão da Tecnologia da Informação',
+	];
+
 	return (
 		<section className="form">
 			<form>
@@ -25,6 +36,7 @@ function Form() {
 					placeholder="Informe o endereço da imagem..."
 				/>
 				<TextField label="Curso" id="input-course" type="text" />
+				<DropdownList items={courses} />
 			</form>
 		</section>
 	);
