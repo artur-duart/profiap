@@ -8,6 +8,7 @@ function TextField(props) {
 				id={props.id}
 				type={props.type}
 				placeholder={props.placeholder}
+				required={props.required}
 			/>
 		</div>
 	);
