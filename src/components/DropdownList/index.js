@@ -4,7 +4,11 @@ function DropdownList(props) {
 	return (
 		<div className="select-field">
 			<label htmlFor={props.id}>{props.label}</label>
-			<select id={props.id} required={props.required}>
+			<select
+				onChange={(event) => props.whenChanged(event.target.value)}
+				id={props.id}
+				required={props.required}
+			>
 				<option key="default" selected="selected" disabled="true">
 					-- Selecione o Curso --
 				</option>

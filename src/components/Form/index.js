@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
 import TextField from '../TextField';
 import './Form.css';
 
-function Form() {
+function Form(props) {
 	const courses = [
 		'Análise e Desenvolvimento de Sistemas',
 		'Sistemas para Internet',
@@ -14,10 +15,20 @@ function Form() {
 		'Gestão da Tecnologia da Informação',
 	];
 
+	const [name, setName] = useState('');
+	const [subject, setSubject] = useState('');
+	const [image, setImage] = useState('');
+	const [course, setCourse] = useState('');
+
 	const onSave = (event) => {
 		event.preventDefault();
-		console.log('Form sent');
-	}
+		props.whenAddNewCollaborator({
+			name,
+			subject,
+			image,
+			course,
+		});
+	};
 
 	return (
 		<section className="form">
@@ -30,6 +41,8 @@ function Form() {
 					type="text"
 					placeholder="Digite o seu nome..."
 					required="true"
+					value={name}
+					whenChanged={(value) => setName(value)}
 				/>
 
 				<TextField
@@ -38,6 +51,8 @@ function Form() {
 					type="text"
 					placeholder="Digite a sua disciplina..."
 					required="true"
+					value={subject}
+					whenChanged={(value) => setSubject(value)}
 				/>
 
 				<TextField
@@ -45,6 +60,8 @@ function Form() {
 					id="input-image"
 					type="text"
 					placeholder="Informe o endereço da imagem..."
+					value={image}
+					whenChanged={(value) => setImage(value)}
 				/>
 
 				<DropdownList
@@ -52,6 +69,8 @@ function Form() {
 					label="Curso"
 					items={courses}
 					required="true"
+					value={course}
+					whenChanged={(value) => setCourse(value)}
 				/>
 
 				<Button text="Criar Card" />
