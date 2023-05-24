@@ -1,13 +1,21 @@
 .course {
 	text-align: center;
 	padding: 32px;
-	background-color: #fae9f5;
 }
 
 .course h3 {
 	font-size: 32px;
 	font-family: Prata, serif;
-	border-bottom: 4px solid #db6ebf;
+	border-bottom: 4px solid;
 	padding-bottom: 8px;
 	display: inline-block;
+}
+
+.course .teachers {
+	display: flex;
+	margin: 38px 24px;
+	flex-wrap: wrap;
+	gap: 24px;
+	align-items: center;
+	justify-content: center;
 }

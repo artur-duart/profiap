@@ -1,0 +1,20 @@
+.footer {
+	background-color: #151819;
+	display: flex;
+	color: #ffffff;
+	align-items: center;
+	justify-content: space-between;
+	padding: 80px;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.footer .socials {
+	display: flex;
+	list-style: none;
+	gap: 24px;
+}
+
+.footer p {
+	font-family: Montserrat;
+}

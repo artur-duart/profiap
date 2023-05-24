@@ -5,16 +5,6 @@ import TextField from '../TextField';
 import './Form.css';
 
 function Form(props) {
-	const courses = [
-		'Análise e Desenvolvimento de Sistemas',
-		'Sistemas para Internet',
-		'Data Science',
-		'Defesa Cibernética',
-		'Produção Multimídia',
-		'Jogos Digitais',
-		'Gestão da Tecnologia da Informação',
-	];
-
 	const [name, setName] = useState('');
 	const [subject, setSubject] = useState('');
 	const [image, setImage] = useState('');
@@ -22,12 +12,16 @@ function Form(props) {
 
 	const onSave = (event) => {
 		event.preventDefault();
-		props.whenAddNewCollaborator({
+		props.whenAddNewTeacher({
 			name,
 			subject,
 			image,
 			course,
 		});
+		setName('');
+		setSubject('');
+		setImage('');
+		setCourse('');
 	};
 
 	return (
@@ -67,7 +61,7 @@ function Form(props) {
 				<DropdownList
 					id="select-course"
 					label="Curso"
-					items={courses}
+					items={props.courses}
 					required="true"
 					value={course}
 					whenChanged={(value) => setCourse(value)}

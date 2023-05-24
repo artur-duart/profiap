@@ -7,12 +7,12 @@ function DropdownList(props) {
 			<select
 				onChange={(event) => props.whenChanged(event.target.value)}
 				id={props.id}
-				required={props.required}
+				required={!!props.required}
+				value={props.value}
 			>
-				<option key="default" selected="selected" disabled="true">
+				<option key="default" disabled={true} value="">
 					-- Selecione o Curso --
 				</option>
-
 				{props.items.map((item) => {
 					return <option key={item}>{item}</option>;
 				})}
